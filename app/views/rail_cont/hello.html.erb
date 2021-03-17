@@ -1,0 +1,10 @@
+<h1>Привет Андрей!</h1>
+<p>Привет Андрей! Сейчас <%=@time%> </p>
+
+<p><%= 1+2%></p>
+
+<% for file in @files %>
+<p>file name is: <%= file %></p>
+ <% end %>
+
+<p>Самое время <%= link_to "попрощаться", rail_cont_goodbye_path %>! </p>
