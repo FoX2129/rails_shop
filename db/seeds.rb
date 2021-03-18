@@ -10,13 +10,13 @@
 Product.delete_all
 Product.create!(title: 'CoffeeScript',
   description:
-    %{<p>
+    %{
         CoffeeScript is JavaScript done right. It provides all of JavaScript's
 	functionality wrapped in a cleaner, more succinct syntax. In the first
 	book on this exciting new language, CoffeeScript guru Trevor Burnham
 	shows you how to hold onto all the power and flexibility of JavaScript
 	while writing clearer, cleaner, and safer code.
-      </p>},
+      },
   image_url:   'cs.jpg',
   price: 36.00)
 # . . .
@@ -27,10 +27,9 @@ Product.create!(title: 'Programming Ruby 1.9 & 2.0',
         out there. If you need to get working programs delivered fast,
         you should add Ruby to your toolbox.
       </p>},
-  image_url: 'ACDC.jpeg',
+  image_url: 'ACDC.jpeg', #hello. There is difference. Is anybody/soul here?
   price: 49.95)
 # . . .
-
 Product.create!(title: 'Rails Test Prescriptions',
   description:
     %{<p>
