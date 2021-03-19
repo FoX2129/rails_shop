@@ -8,29 +8,25 @@
 #---
 # encoding: utf-8
 Product.delete_all
-Product.create!(title: 'CoffeeScript',
+Product.create!(title: 'UberSemperFI',
   description:
     %{
-        CoffeeScript is JavaScript done right. It provides all of JavaScript's
-	functionality wrapped in a cleaner, more succinct syntax. In the first
-	book on this exciting new language, CoffeeScript guru Trevor Burnham
-	shows you how to hold onto all the power and flexibility of JavaScript
-	while writing clearer, cleaner, and safer code.
+        UberSemperFI (Сергей Косухин) - Russian test of russian text.
       },
   image_url:   'ImageNull.jpg',
-  price: 36.00)
+  price: 1.00)
 # . . .
-Product.create!(title: 'Programming Ruby 1.9 & 2.0',
+Product.create!(title: 'AC/DC',
   description:
     %{<p>
-        Ruby is the fastest growing and most exciting dynamic language
-        out there. If you need to get working programs delivered fast,
-        you should add Ruby to your toolbox.
+        AC/DC are an Australian rock band formed in Sydney in 1973 by Scottish-born brothers Malcolm and Angus Young.
+        Their music has been variously described as hard rock, blues rock, and heavy metal,
+        but the band themselves call it simply "rock and roll"..
       </p>},
   image_url: 'ACDC.jpeg', #Надо спросить, как использовать <p> в %{} или %Q
   price: 49.95)
 # . . .
-Product.create!(title: 'Rails Test Prescriptions',
+Product.create!(title: 'Random',
   description:
     %{<p>
         <em>Rails Test Prescriptions</em> is a comprehensive guide to testing
