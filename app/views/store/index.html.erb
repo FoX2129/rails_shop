@@ -1,4 +1,5 @@
 <% if notice %>
+<<<<<<< HEAD
 <p id="notice"><%= notice %></p>
 <% end %>
 <h1>Your Pragmatic Catalog</h1>
@@ -11,4 +12,27 @@
  <span class="price"><%= product.price %></span>
  </div>
  </div>
+=======
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Your Pragmatic Catalog</h1>
+<% @products.each do |product| %>
+
+
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+   <td>
+     <%= image_tag(product.image_url, class: 'list_image') %>
+     </td>
+     <td class="list_description">
+     <dl>
+     <dt>
+       <h3><%= product.title %></h3> <!--Название--></dt>
+     <dd><%= sanitize(product.description) %></dd>
+     </dl>
+     <dd> <%= product.price %> </dd>
+     </td>
+</tr>
+
+>>>>>>> 5215ed3c62ade0f9e6809f332b005479b35dc59d
 <% end %>
