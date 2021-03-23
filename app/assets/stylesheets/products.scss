@@ -11,10 +11,14 @@ table tr td {
  }
 
  .list_image {
-width: 60px;
- height: 70px;
+width: 100px;
+ height: 100px;
  }
-
+ .price {
+ color: #44a;
+ font-weight: bold;
+ margin-right: 3em;
+ }
  .list_description {
  width: 60%;
 
@@ -40,10 +44,10 @@ width: 60px;
  }
 
  .list_line_even {
- background: #e0f8f8;
+ background: #bfc9d7;
  }
 
  .list_line_odd {
- background: #f8b0f8;
+ background: #b0bdf8;
  }
  }
