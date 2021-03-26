@@ -1,10 +1,13 @@
 <h1>Привет Андрей!</h1>
 <p>Привет Андрей! Сейчас <%=@time%> </p>
 
-<p><%= 1+2%></p>
-
-<% for file in @files %>
-<p>file name is: <%= file %></p>
- <% end %>
+<p>Тебе доступны:</p>
+<ul>
+<li><a href="/store/index">Магазин</a></li>
+<li><a href="/rail_cont/goodbye">Вопросы</a></li>
+<li><a href="http://www..../news">News</a></li>
+<li><a href="http://www..../contact">Contact</a></li>
+<li><a href="/products">Менежмент</a></li>
+</ul>
 
 <p>Самое время <%= link_to "попрощаться", rail_cont_goodbye_path %>! </p>

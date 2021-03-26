@@ -7,22 +7,24 @@
   <%= csrf_meta_tag %>
    </head>
    <body class="<%= controller.controller_name %>">
-  <div id="banner">
-  <%= image_tag("Logo.jpg", class:" list_image") %>
-   <%= @page_title || "Pragmatic Bookshelf" %>
+   <div id="banner">
+       <%= image_tag("Logo.jpg", class:" logotip") %>
+       <%= @page_title || "Pragmatic Bookshelf" %>
    </div>
    <div id="columns">
-  <div id="side">
-    <ul>
-    <li><a href="http://www....">Home</a></li>
-    <li><a href="http://www..../faq">Questions</a></li>
-   <li><a href="http://www..../news">News</a></li>
-   <li><a href="http://www..../contact">Contact</a></li>
-    </ul>
-   </div>
-   <div id="main">
-   <%= yield %>
-   </div>
+        <div id="side">
+          <ul>
+          <li><a> <%= link_to "Поприветствовать", rail_cont_hello_path %> </a></li>
+         <li><a href="/store/index">Магазин</a></li>
+          <li><a href="/rail_cont/goodbye">Вопросы</a></li>
+         <li><a href="http://www..../news">News</a></li>
+         <li><a href="http://www..../contact">Contact</a></li>
+         <li><a href="/products">Менежмент</a></li>
+          </ul>
+        </div>
+        <div id="main">
+        <%= yield %>
+        </div>
    </div>
    </body>
  </html>
