@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-   <title>Pragprog Books Online Store</title>
+   <title>Онлайн Магазин</title>
    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
    <%= javascript_pack_tag "application"%>
   <%= csrf_meta_tag %>
@@ -16,9 +16,8 @@
           <ul>
           <li><a> <%= link_to "Поприветствовать", rail_cont_hello_path %> </a></li>
          <li><a href="/store/index">Магазин</a></li>
+         <li><a href="/carts">Корзины</a></li>
           <li><a href="/rail_cont/goodbye">Вопросы</a></li>
-         <li><a href="http://www..../news">News</a></li>
-         <li><a href="http://www..../contact">Contact</a></li>
          <li><a href="/products">Менежмент</a></li>
           </ul>
         </div>

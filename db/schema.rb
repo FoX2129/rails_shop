@@ -10,28 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_03_30_052308) do
-=======
-ActiveRecord::Schema.define(version: 2021_03_26_073956) do
->>>>>>> f1cbe3f9ccd2398f1d1cf29bc48515420d525bb6
+ActiveRecord::Schema.define(version: 2021_04_01_101234) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-<<<<<<< HEAD
 
   create_table "line_items", force: :cascade do |t|
     t.integer "product_id", null: false
     t.integer "cart_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "quantity", default: 1
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["product_id"], name: "index_line_items_on_product_id"
   end
-=======
->>>>>>> f1cbe3f9ccd2398f1d1cf29bc48515420d525bb6
 
   create_table "products", force: :cascade do |t|
     t.string "title"
