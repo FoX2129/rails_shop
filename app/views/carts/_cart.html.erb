@@ -1,0 +1,10 @@
+<h2>Your Cart</h2>
+<table>
+  <%= render(cart.line_items) %>
+
+  <tr class="total_line">
+    <td colspan="2">Total</td>
+    <td class="total_cell"> <%= sprintf("%0.02f₽", cart.total_price) %> </td>
+  </tr>
+</table>
+<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Инициирована очистка корзины. Вы уверены в своём выборе?' } %>
