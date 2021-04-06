@@ -5,16 +5,16 @@
 <% cache ['store', Product.last] do %>
 <% @products.each do |product| %>
 <% cache ['entry', product] do %>
- <div class="entry">
-   <%= image_tag(product.image_url) %>
-   <h3><%= product.title %></h3>
-   <%= sanitize(product.description) %>
-     <div class="price_line">
-       <%= button_to '+ в корзину', line_items_path(product_id: product)%>
+<div class="entry">
+  <%= image_tag(product.image_url) %>
+  <h3><%= product.title %></h3>
+  <%= sanitize(product.description) %>
+  <div class="price_line">
+    <%= button_to '+ в корзину', line_items_path(product_id: product), remote: true %>
 
-     <span class="price"><%= sprintf("%0.02f₽", product.price) %></span>
-     </div>
- </div>
- <% end %>
+    <span class="price"><%= sprintf("%0.02f₽", product.price) %></span>
+  </div>
+</div>
+<% end %>
 <% end %>
 <% end %>
