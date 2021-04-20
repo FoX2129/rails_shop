@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   include CurrentCart
   before_action :set_cart
   before_action :set_product, only: %i[ show edit update destroy ]
-
+  http_basic_authenticate_with name: "admin", password: "112100", except: [:index, :show]
   # GET /products or /products.json
   def index
     @products = Product.all
