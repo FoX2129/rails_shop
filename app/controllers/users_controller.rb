@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+    @users = User.order(:name)
+  end
+
   # GET /users/1/edit
   def edit
   end
@@ -25,7 +29,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: "User was successfully created." }
+        format.html { redirect_to users_url, notice: "Пользователь #{@user.name} был успешно создан." }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
