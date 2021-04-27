@@ -17,9 +17,9 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
         <% if @cart %>
-          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
-          <%= render @cart %>
-          <% end %>
+        <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+        <%= render @cart %>
+        <% end %>
         <% end %>
       </div>
       <ul>
@@ -28,7 +28,16 @@
         <li><a href="/carts">Корзины</a></li>
         <li><a href="/rail_cont/goodbye">Вопросы</a></li>
         <li><a href="/products">Менежмент</a></li>
+        <li><a href="/users">Пользователи</a></li>
       </ul>
+      <% if session[:user_id] %>
+      <ul>
+        <li><%= link_to 'Orders', orders_path %></li>
+        <li><%= link_to 'Products', products_path %></li>
+        <li><%= link_to 'Users', users_path %></li>
+      </ul>
+      <%= button_to 'Logout', logout_path, method: :delete %>
+      <% end %>
     </div>
     <div id="main">
       <%= yield %>
