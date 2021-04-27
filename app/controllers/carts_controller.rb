@@ -1,9 +1,9 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: %i[ show edit update destroy ]
-
+  include CurrentCart
+  before_action :set_cart
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
-
   # GET /carts or /carts.json
+
   def index
     @carts = Cart.all
   end
@@ -27,7 +27,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to @cart, notice: "Корзина создана успешно." }
+        format.html { redirect_to @cart, notice: "Cart was successfully created." }
         format.json { render :show, status: :created, location: @cart }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: "Корзина обновлена." }
+        format.html { redirect_to @cart, notice: "Cart was successfully updated." }
         format.json { render :show, status: :ok, location: @cart }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,24 +51,24 @@ class CartsController < ApplicationController
 
   # DELETE /carts/1 or /carts/1.json
   def destroy
-    @cart.destroy if @cart.id == session[:cart_id]
-    session[:cart_id] = nil
+    @cart.destroy
     respond_to do |format|
-      format.html { redirect_to store_url}
+      format.html { redirect_to store_url }
+      format.js
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_cart
-      @cart = Cart.find(params[:id])
-    end
+  #  def set_cart
+      #@cart = Cart.find(params[:id])
+    #end
 
     def invalid_cart
       logger.error "Attempt to access invalid cart #{params[:id]}"
-      redirect_to store_url, notice: 'Выбраной корзины нет.'
-      end
+      redirect_to store_url, notice: 'Invalid cart'
+   end
     # Only allow a list of trusted parameters through.
     def cart_params
       params.fetch(:cart, {})
