@@ -29,14 +29,12 @@
         <li><a href="/rail_cont/goodbye">Вопросы</a></li>
         <li><a href="/products">Менежмент</a></li>
         <li><a href="/users">Пользователи</a></li>
+        <% if session[:user_id] %>
+        <li><a href="/admin">Личный кабинет</a></li>
+        <% end %>
       </ul>
       <% if session[:user_id] %>
-      <ul>
-        <li><%= link_to 'Orders', orders_path %></li>
-        <li><%= link_to 'Products', products_path %></li>
-        <li><%= link_to 'Users', users_path %></li>
-      </ul>
-      <%= button_to 'Logout', logout_path, method: :delete %>
+      <%= button_to 'Покинуть аккаунт', logout_path, method: :delete %>
       <% end %>
     </div>
     <div id="main">

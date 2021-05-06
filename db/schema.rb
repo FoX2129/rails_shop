@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_27_121117) do
+ActiveRecord::Schema.define(version: 2021_05_06_114401) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "files", force: :cascade do |t|
+    t.string "name"
+    t.binary "data", limit: 1048576
   end
 
   create_table "line_items", force: :cascade do |t|
