@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_05_06_114401) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -19,16 +22,16 @@ ActiveRecord::Schema.define(version: 2021_05_06_114401) do
 
   create_table "files", force: :cascade do |t|
     t.string "name"
-    t.binary "data", limit: 1048576
+    t.binary "data"
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.integer "cart_id"
+    t.bigint "product_id", null: false
+    t.bigint "cart_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "quantity", default: 1
-    t.integer "order_id", null: false
+    t.bigint "order_id"
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["order_id"], name: "index_line_items_on_order_id"
     t.index ["product_id"], name: "index_line_items_on_product_id"
