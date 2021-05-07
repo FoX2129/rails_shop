@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+
   end
 
   # POST /products or /products.json
@@ -34,6 +35,10 @@ class ProductsController < ApplicationController
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def import
+
   end
 
   # PATCH/PUT /products/1 or /products/1.json
