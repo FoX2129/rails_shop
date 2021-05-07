@@ -3,11 +3,12 @@ class ProductsController < ApplicationController
   before_action :set_cart
   before_action :set_product, only: %i[ show edit update destroy ]
   http_basic_authenticate_with name: "admin", password: "112100", except: [:index, :show]
+
+
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @products = Product.order(:title).page params[:page]
   end
-
   # GET /products/1 or /products/1.json
   def show
   end
