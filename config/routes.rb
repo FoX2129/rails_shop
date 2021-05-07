@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   resources :upload
   get 'store/index'
   #get 'products/:id', to: 'products#show', as: 'product', id:/\d+/
+  post 'product/fpath', to: 'products#fpath', as: 'fpath_product'
   get 'products/import', to: 'products#import', as: 'import_product'
+
   resources :products
 
   root to: 'store#index', as: 'store'

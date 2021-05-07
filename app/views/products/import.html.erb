@@ -1,2 +1,5 @@
 
-<h1> IMPORT WILL BE HERE. </h1>
+<%= form_tag({:action => :fpath}, multipart: true) do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag( "Import" ) %>
+<% end %>

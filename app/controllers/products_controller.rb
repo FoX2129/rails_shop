@@ -37,10 +37,16 @@ class ProductsController < ApplicationController
     end
   end
 
-  def import
-
+  def fpath
+    require 'csv'
+    filepath = params[:file].path
+    CSV.foreach(filepath, headers: false, force_quotes: false, quote_char: "'", col_sep: ",") do |row|
+      Product.create(([ { id: nil, title: row[1], description: row[3], image_url: row[4], price: row[2], created_at: row[5], updated_at: row[6] } ]))
+    end
   end
 
+  def import
+  end
   # PATCH/PUT /products/1 or /products/1.json
   def update
     respond_to do |format|
@@ -64,13 +70,13 @@ class ProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def product_params
-      params.require(:product).permit(:title, :description, :image_url, :price)
-    end
+  # Only allow a list of trusted parameters through.
+  def product_params
+    params.require(:product).permit(:title, :description, :image_url, :price)
+  end
 end
