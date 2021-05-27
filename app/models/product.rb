@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
 
+
+     paginates_per 1
   has_many :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
 
@@ -9,6 +11,8 @@ class Product < ApplicationRecord
   validates :title, uniqueness: true
   validates :image_url, allow_blank: true, format: { with: %r{\.(gif|jpg|png)\Z}i,
  message: 'URL должен указывать на изображение формата GIF, JPG или PNG.'}
+
+
 
 private
  # убеждаемся в отсутствии товарных позиций, ссылающихся на данный товар
@@ -21,6 +25,7 @@ private
      end
    end
 end
+
 def self.latest
  Product.order(:updated_at).last
 end

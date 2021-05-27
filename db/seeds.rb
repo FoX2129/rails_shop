@@ -23,7 +23,7 @@ Product.create!(title: 'AC/DC',
         Their music has been variously described as hard rock, blues rock, and heavy metal,
         but the band themselves call it simply "rock and roll"..
       </p>},
-  image_url: 'ACDC.jpeg', #Надо спросить, как использовать <p> в %{} или %Q
+  image_url: 'ACDC.jpg', #Надо спросить, как использовать <p> в %{} или %Q
   price: 49.95)
 # . . .
 Product.create!(title: 'Random',
@@ -38,3 +38,5 @@ Product.create!(title: 'Random',
       </p>},
   image_url: 'ImageNull.jpg',
   price: 34.95)
+
+  User.create(name: 'Skinbag', password: '9', password_confirmation: '9')
